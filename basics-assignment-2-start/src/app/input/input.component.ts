@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent implements OnInit {
+	username = '';
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  removeUsername() {
+  	this.username = '';
+  }
+
+  checkUsername() {
+  	return username.length > 0;
   }
 
 }

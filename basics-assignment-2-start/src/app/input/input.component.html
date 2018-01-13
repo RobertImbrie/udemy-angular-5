@@ -1,3 +1,8 @@
-<p>
-  input works!
-</p>
+<input type="text" name="form-control" [(ngModel)]="username">
+<button
+	class="btn btn-primary"
+	[disabled]="!username.length"
+	(click)="removeUsername()">
+	Remove Username
+</button>
+<p>{{username}}</p>
