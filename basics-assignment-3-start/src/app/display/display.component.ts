@@ -3,13 +3,17 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-display',
   templateUrl: './display.component.html',
-  styleUrls: ['./display.component.css']
+  styleUrls: ['./display.component.css'],
+  styles: [`
+  	.display{
+  		visibility: hidden;
+  	}
+  `]
 })
-export class DisplayComponent implements OnInit {
+export class DisplayComponent {
+	showParagraph=false;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+	toggleParagraph(){
+		this.showParagraph = !this.showParagraph;
+	}
 }
