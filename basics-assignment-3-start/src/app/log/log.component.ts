@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./log.component.css']
 })
 export class LogComponent implements OnInit {
+	time = 0;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+	constructor(){
+		this.time = Date.now();
+	}
 
 }

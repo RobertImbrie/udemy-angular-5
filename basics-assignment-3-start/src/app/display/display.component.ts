@@ -8,12 +8,22 @@ import { Component, OnInit } from '@angular/core';
   	.display{
   		visibility: hidden;
   	}
+  	.textColor{
+  		color: white;
+  	}
   `]
 })
 export class DisplayComponent {
-	showParagraph=false;
+	hideParagraph=false;
+	logs = [];
 
-	toggleParagraph(){
-		this.showParagraph = !this.showParagraph;
+	clickButton(){
+		this.hideParagraph = !this.hideParagraph;
+		this.logs.push( this.logs.length );
+		console.log( this.logs.length );
+	}
+
+	getColor(){
+		return this.logs.length>4 ? "blue" : "white";
 	}
 }
