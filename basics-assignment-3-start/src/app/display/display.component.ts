@@ -16,14 +16,14 @@ import { Component, OnInit } from '@angular/core';
 export class DisplayComponent {
 	hideParagraph=false;
 	logs = [];
+	length = 0;
 
 	clickButton(){
 		this.hideParagraph = !this.hideParagraph;
-		this.logs.push( this.logs.length );
-		console.log( this.logs.length );
+		this.logs.push( { id: this.logs.length } );
 	}
 
-	getColor(){
-		return this.logs.length>4 ? "blue" : "white";
+	getColor( log ){
+		return (log > 4) ? "blue" : "white";
 	}
 }
