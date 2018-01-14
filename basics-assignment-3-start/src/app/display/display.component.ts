@@ -20,10 +20,6 @@ export class DisplayComponent {
 
 	clickButton(){
 		this.hideParagraph = !this.hideParagraph;
-		this.logs.push( { id: this.logs.length } );
-	}
-
-	getColor( log ){
-		return (log > 4) ? "blue" : "white";
+		this.logs.push( this.logs.length );
 	}
 }

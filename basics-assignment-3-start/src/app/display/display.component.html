@@ -6,6 +6,6 @@
   display works!
 </p>
 <p
-	*ngFor="let log of logs"
-	[ngStyle]="{ backgroundColor: getColor( log.id ) }"
-	[ngClass]="{ textColor: log.id>4 }"> {{log.id}}</p>
+	*ngFor="let log of logs; let i = index"
+	[ngStyle]="{ backgroundColor: i > 3 ? 'blue' : 'transparent' }"
+	[ngClass]="{ textColor: i > 3 }"> {{log.id}}</p>
