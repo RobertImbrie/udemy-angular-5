@@ -12,6 +12,7 @@ export class ServerElementComponent implements AfterViewInit, OnDestroy,
   @Input() name: string;
   @ViewChild('heading') header: ElementRef;
   @ContentChild('contentParagraph') paragraph: ElementRef;
+
   constructor() {
     console.log('constructor called!');
   }
