@@ -12,7 +12,9 @@ import {
   AfterViewChecked,
   OnDestroy,
   ViewChild,
-  ElementRef} from '@angular/core';
+  ElementRef,
+  ContentChild
+} from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -27,11 +29,12 @@ export class ServerElementComponent implements
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy,
-  ViewChild {
+  OnDestroy {
   // @Input('srvElement') element: {type: string, name: string, content: string};
   @Input() name: string;
   @ViewChild('heading') header: ElementRef;
+  @ContentChild('contnetParagraph') paragraph: ElementRef;
+
   constructor() {
     console.log('constructor called');
   }
