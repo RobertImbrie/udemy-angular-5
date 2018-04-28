@@ -7,7 +7,9 @@ import {
   SimpleChanges,
   DoCheck,
   AfterContentInit,
-  AfterContentChecked} from '@angular/core';
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked} from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -15,7 +17,8 @@ import {
   styleUrls: ['./server-element.component.css']
   //encapsulation: ViewEncapsulation.Native
 })
-export class ServerElementComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked {
+export class ServerElementComponent implements
+OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {
   // @Input('srvElement') element: {type: string, name: string, content: string};
   @Input() name: string;
   constructor() {
@@ -41,5 +44,13 @@ export class ServerElementComponent implements OnInit, OnChanges, DoCheck, After
 
   ngAfterContentChecked() {
     console.log('ngAfterContentChecked called!');
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit called!');
+  }
+
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked called!');
   }
 }
