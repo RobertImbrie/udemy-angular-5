@@ -13,7 +13,8 @@ import {
   //encapsulation: ViewEncapsulation.Native
 })
 export class ServerElementComponent implements OnInit, OnChanges {
-  @Input('srvElement') element: {type: string, name: string, content: string};
+  // @Input('srvElement') element: {type: string, name: string, content: string};
+  @Input() name: string;
   constructor() {
     console.log('constructor called');
   }
