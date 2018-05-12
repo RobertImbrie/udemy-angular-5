@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  featureSelected = 'recipe';
+  feature = 'recipe';
 
-  onSelect( featureSelected: string ) {
-    this.featureSelected = featureSelected;
+  changeFeature( feature: string ) {
+    this.feature = feature;
   }
 }
