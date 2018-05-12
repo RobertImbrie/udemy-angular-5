@@ -10,4 +10,5 @@ export class AppComponent {
   evens   = [2, 4];
   odds    = [1, 3, 5];
   onlyOdd = false;
+  value   = 5;
 }
