@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   numbers = [1, 2, 3, 4, 5];
+  evens   = [2, 4];
+  odds    = [1, 2, 3];
   onlyOdd = false;
 }
