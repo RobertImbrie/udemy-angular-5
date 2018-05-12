@@ -5,12 +5,8 @@ import {Directive, HostListener, HostBinding} from '@angular/core';
 })
 export class DropdownDirective {
     initialClasses: string;
-    @HostBinding('class') class;
+    @HostBinding('class.open') isOpen = false;
     @HostListener('click') toggleClass(eventData: Event) {
-        if ( this.class ) {
-            this.class = '';
-        } else {
-            this.class = 'open';
-        }
+        this.isOpen = !this.isOpen;
     }
 }
