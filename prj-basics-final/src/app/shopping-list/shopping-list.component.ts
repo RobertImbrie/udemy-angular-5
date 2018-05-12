@@ -14,7 +14,6 @@ export class ShoppingListComponent implements OnInit {
   ];
 
   add( item ) {
-    console.log(item);
     this.ingredients.push( new Ingredient(item.name, item.amount) );
   }
 

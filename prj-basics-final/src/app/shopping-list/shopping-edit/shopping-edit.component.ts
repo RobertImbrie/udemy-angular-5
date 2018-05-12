@@ -13,7 +13,6 @@ export class ShoppingEditComponent implements OnInit {
   @ViewChild('amount') amount: ElementRef;
 
   onAdd() {
-    console.log(this.name + ' ' + this.amount);
     this.add.emit({
       name: this.name.nativeElement.value,
       amount: this.amount.nativeElement.value
