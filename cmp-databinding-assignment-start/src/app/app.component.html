@@ -18,19 +18,7 @@
 <div class="container">
   <div class="row">
     <app-game-control
-      (startClicked) = "onStartClicked($event)"
-      (stopClicked)  = "onStopClicked($event)"></app-game-control>
-  </div>
-  <div class="row">
-    <div class="col-xs-6 text-center">
-      <app-odd
-        *ngFor="let oddElement of oddElements"
-        [number]="oddElement"></app-odd>
-    </div>
-    <div class="col-xs-6 text-center">
-      <app-even
-        *ngFor="let evenElement of evenElements"
-        [number]="evenElement"></app-even>
-    </div>
+      (startClicked) = "onStartClicked()"
+      (stopClicked)  = "onStopClicked()"></app-game-control>
   </div>
 </div>

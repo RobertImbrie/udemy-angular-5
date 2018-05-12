@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-game-control',
@@ -6,10 +6,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./game-control.component.css']
 })
 export class GameControlComponent implements OnInit {
-  numberSeconds = 0;
-  interval;
-  @Output() startClicked = new EventEmitter<number>();
-  @Output() stopClicked  = new EventEmitter();
 
   constructor() {
   }
@@ -18,17 +14,13 @@ export class GameControlComponent implements OnInit {
   }
 
   onStart() {
-    var thisObj = this;
-    this.interval = setInterval(
-      function() {
-        thisObj.startClicked.emit(thisObj.numberSeconds++);
-      },
-      1000
-    );
+    setInterval( function() {
+        this.startClicked.emit({ });
+    },
+    1000);
   }
 
   onStop() {
-    clearInterval( this.interval );
-    this.stopClicked.emit();
+    this.stopClicked.emit({ });
   }
 }
