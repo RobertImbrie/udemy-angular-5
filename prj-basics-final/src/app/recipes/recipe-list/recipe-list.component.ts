@@ -14,12 +14,14 @@ export class RecipeListComponent implements OnInit {
     new Recipe('A Test Recipe 2', 'This is simply a test 2', 'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg')
   ];
 
-    recipeClicked(recipe: Recipe) {
-      this.passRecipe.emit(recipe);
-    }
+  recipeClicked(recipe: Recipe) {
+    this.passRecipe.emit(recipe);
+  }
+
   constructor() { }
 
   ngOnInit() {
+    this.passRecipe.emit(this.recipes[0]);
   }
 
 }
