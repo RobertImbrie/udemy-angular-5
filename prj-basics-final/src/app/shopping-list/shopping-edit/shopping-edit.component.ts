@@ -6,7 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit {
+  name: string;
+  amount: number;
 
+  onAdd() {
+
+  }
+
+  onDelete() {
+
+  }
+
+  onClear() {
+    
+  }
   constructor() { }
 
   ngOnInit() {
