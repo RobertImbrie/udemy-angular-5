@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -9,13 +9,15 @@ export class ShoppingEditComponent implements OnInit {
   @Output() add    = new EventEmitter<{name: string, amount: number}>();
   @Output() delete = new EventEmitter();
   @Output() clear  = new EventEmitter();
-
-  name: string;
-  amount: number;
+  @ViewChild('name') name: ElementRef;
+  @ViewChild('amount') amount: ElementRef;
 
   onAdd() {
     console.log(this.name + ' ' + this.amount);
-    this.add.emit({ name: this.name, amount: this.amount });
+    this.add.emit({
+      name: this.name.nativeElement.value,
+      amount: this.amount.nativeElement.value
+    });
   }
 
   onDelete() {
