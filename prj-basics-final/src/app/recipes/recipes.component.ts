@@ -8,9 +8,7 @@ import { Recipe } from './recipe.model';
 })
 export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe;
-  detailRecipe(recipe: Recipe) {
-    this.selectedRecipe = recipe;
-  }
+
   constructor() { }
 
   ngOnInit() {
