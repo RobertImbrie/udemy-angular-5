@@ -14,7 +14,10 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-    { path: 'recipes', component: RecipesComponent, children: [] },
+    { path: 'recipes', component: RecipesComponent, children: [
+        { path: '', redirectTo: '0', pathMatch: 'full'},
+        { path: ':index', component: RecipeDetailComponent }
+    ] },
     { path: 'shopping-list', component: ShoppingListComponent, children: [] }
 ];
 
