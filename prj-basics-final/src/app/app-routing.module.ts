@@ -13,7 +13,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 
 const appRoutes: Routes = [
-    { path: '', component: AppComponent },
+    { path: '', redirectTo: RecipesComponent },
     { path: 'recipes', component: RecipesComponent, children: [] },
     { path: 'shopping-list', component: ShoppingListComponent, children: [] }
 ];
