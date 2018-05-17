@@ -1,44 +1,60 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form>
+      <form #f="ngForm">
         <div class="form-group">
           <label for="email">Email</label>
           <input
             type="email"
             id="email"
-            class="formc-ontrol"
+            class="form-control"
             ngModel
             name="email"
-            required>
+            required
+            #email="ngModel"
+            email>
+        </div>
+        <div class="alert alert-danger" *ngIf="!email.valid && email.touched">
+            <strong>Invalid email!</strong>
         </div>
         
         <div class="form-group">
           <label for="subscription">Subscription</label>
           <select
+            class="form-control"
             name="subscription"
             id="subscription"
             [ngModel]="defaultSubscription"
-            name="subscription">
+            name="subscription"
+            #subscription="ngModel">
             <option value="basic">Basic</option>
             <option value="advanced">Advanced</option>
             <option value="pro">Professional</option>
           </select>
         </div>
+        <div class="alert alert-danger" *ngIf="!subscription.valid && subscription.touched">
+          <strong>Invalid subscription!</strong>
+        </div>
 
         <div class="form-group">
           <label for="password">Password</label>
           <input
+            class="form-control"
             name="password"
             id="password"
             ngModel
             type="password"
-            required>
+            required
+            #password="ngModel">
+        </div>
+        <div class="alert alert-danger" *ngIf="!password.valid && password.touched">
+            <strong>Invalid password!</strong>
         </div>
 
         <button
           class="btn btn-primary"
-          type="submit">Submit</button>
+          type="submit"
+          (click)="onSubmit()">Submit</button>
       </form>
       <!-- Add a Form with the following Inputs (and Validators)
            1) Mail address (should not be empty and should be an email address)
