@@ -12,8 +12,8 @@ export class AppComponent implements  OnInit{
 
   ngOnInit() {
     this.projectForm = new FormGroup({
-      'projectName': new FormControl(null),
-      'email': new FormControl(null, Validators.email),
+      'projectName': new FormControl(null, Validators.required, this.asynchValidateProjectName.bind(this)),
+      'email': new FormControl(null, [Validators.required, Validators.email]),
       'projectStatus': new FormControl(null)
     });
   }
@@ -21,12 +21,16 @@ export class AppComponent implements  OnInit{
   asynchValidateProjectName(control: FormControl): Promise<any> | Observable<any> {
     const promise = new Promise<any>((resolve, reject) => {
       if (control.value === 'Test') {
-        resolve({'projectNameIsForbidden': true})
+        resolve({'projectNameIsForbidden': true});
         } else {
           resolve(null);
         }
       }
     );
     return promise;
+  }
+
+  onSubmit() {
+    console.log(this.projectForm);
   }
 }
