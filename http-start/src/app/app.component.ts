@@ -35,6 +35,7 @@ export class AppComponent {
     this.serverService.getServers()
       .subscribe(
         (servers: any[]) => {
+          this.servers = servers;
           console.log(servers);
         },
         (error)    => console.log(error)
