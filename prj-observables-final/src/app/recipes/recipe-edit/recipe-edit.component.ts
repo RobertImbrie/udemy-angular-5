@@ -23,10 +23,14 @@ export class RecipeEditComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          this.editMode = params['id'] != null;
+          this.editMode = (params['id'] != null);
           this.initForm();
         }
       );
+  }
+
+  onSubmit() {
+    console.log(this.recipeForm);
   }
 
   private initForm() {
