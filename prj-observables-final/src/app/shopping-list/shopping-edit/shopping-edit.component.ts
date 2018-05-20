@@ -1,7 +1,7 @@
 import {
   Component,
   OnInit,
-  ElementRe
+  ElementRef
 } from '@angular/core';
 
 import { Ingredient } from '../../shared/ingredient.model';
