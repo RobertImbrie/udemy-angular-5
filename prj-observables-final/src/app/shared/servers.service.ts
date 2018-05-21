@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { RecipeService } from '../recipes/recipe.service';
 import { Http, Response } from '@angular/http';
+import { Recipe } from '../recipes/recipe.model';
+import 'rxjs/add/operator/map';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ export class ServersService {
   ) { }
 
   saveRecipes() {
-    this.http.put( 'https://udemy-ng-http-510bf.firebaseio.com/recipes.json', this.recipeService.getRecipes() )
+    this.http.put('https://udemy-ng-http-510bf.firebaseio.com/recipes.json', this.recipeService.getRecipes())
       .subscribe(
         (response) => console.log(response),
         (error)    => console.log(error)
@@ -21,10 +23,21 @@ export class ServersService {
   }
 
   fetchRecipes() {
-    this.http.get( 'https://udemy-ng-http-510bf.firebaseio.com/recipes.json' )
-      .subscribe(
+    this.http.get('https://udemy-ng-http-510bf.firebaseio.com/recipes.json')
+      .map(
         (response: Response) => {
-          this.recipeService.resetRecipes( response.json() );
+          const recipes: Recipe[] = response.json();
+          for (let recipe of recipes) {
+            if (!recipe['ingredients']) {
+              recipe['ingredients'] = [];
+            }
+          }
+          return recipes;
+        }
+      )
+      .subscribe(
+        (recipes: Recipe[]) => {
+          this.recipeService.setRecipes( recipes );
         },
         (error) => console.log(error)
       );

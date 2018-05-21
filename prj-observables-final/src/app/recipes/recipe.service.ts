@@ -41,7 +41,7 @@ export class RecipeService {
     this.slService.addIngredients(ingredients);
   }
 
-  resetRecipes(recipes: Recipe[]) {
+  setRecipes(recipes: Recipe[]) {
     this.recipes = recipes;
     this.recipeChanged();
   }
