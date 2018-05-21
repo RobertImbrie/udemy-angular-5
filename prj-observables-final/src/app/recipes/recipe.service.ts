@@ -30,7 +30,7 @@ export class RecipeService {
   constructor(private slService: ShoppingListService) {}
 
   getRecipes() {
-    return this.recipes.slice();
+    return this.recipes ? this.recipes.slice() : null;
   }
 
   getRecipe(index: number) {
@@ -43,21 +43,29 @@ export class RecipeService {
 
   resetRecipes(recipes: Recipe[]) {
     this.recipes = recipes;
-    this.recipesChanged.next(this.recipes.slice());
+    this.recipeChanged();
   }
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
-    this.recipesChanged.next(this.recipes.slice());
+    this.recipeChanged();
   }
 
   updateRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
-    this.recipesChanged.next(this.recipes.slice());
+    this.recipeChanged();
   }
 
   deleteRecipe(index: number) {
     this.recipes.splice(index, 1);
-    this.recipesChanged.next(this.recipes.slice());
+    this.recipeChanged();
+  }
+
+  recipeChanged() {
+    if (!this.recipes) {
+      this.recipesChanged.next(null);
+    } else {
+      this.recipesChanged.next(this.recipes.slice());
+    }
   }
 }
