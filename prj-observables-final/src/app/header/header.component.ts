@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ServersService } from '../shared/servers.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,8 @@ import { ServersService } from '../shared/servers.service';
 })
 export class HeaderComponent {
   constructor(
-    private serversService: ServersService
+    private serversService: ServersService,
+    private authService: AuthService
   ) {}
 
   onSave() {
