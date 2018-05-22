@@ -5,6 +5,7 @@ import { SigninComponent } from './signin/signin.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { FormsModule } from '@angular/forms';
+import { AuthRoutingModule } from './auth-routing.module';
 
 @NgModule({
     declarations: [
@@ -12,7 +13,8 @@ import { FormsModule } from '@angular/forms';
         SignupComponent
     ],
     imports: [
-        FormsModule
+        FormsModule,
+        AuthRoutingModule
     ],
     exports: [
         FormsModule
