@@ -18,8 +18,7 @@ const recipesRoutes: Routes = [
 @NgModule({
     declarations: [],
     imports: [
-        RouterModule.forChild(recipesRoutes),
-        CommonModule
+        RouterModule.forChild(recipesRoutes)
     ],
     exports: [
         RouterModule
