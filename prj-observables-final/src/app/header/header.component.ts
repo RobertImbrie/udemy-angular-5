@@ -19,4 +19,8 @@ export class HeaderComponent {
   onFetch() {
     this.serversService.fetchRecipes();
   }
+
+  onLogout() {
+    this.authService.logout();
+  }
 }

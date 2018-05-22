@@ -48,8 +48,4 @@ export class ServersService {
         (error) => console.log(error)
       );
   }
-
-  getToken() {
-    return firebase
-  }
 }
